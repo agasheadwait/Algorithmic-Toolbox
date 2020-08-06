@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 int gcd_naive(int a, int b) {
   int current_gcd = 1;
@@ -12,9 +13,23 @@ int gcd_naive(int a, int b) {
   return current_gcd;
 }
 
+int gcd_fast(int a,int b){
+  if(a==0){
+    return b;
+  }
+  if(b==0){
+    return a;
+  }
+  int ma = max(a,b);
+  int mi = min(a,b);
+  ma = ma%mi;
+  return gcd_fast(mi,ma);
+
+}
+
 int main() {
   int a, b;
   std::cin >> a >> b;
-  std::cout << gcd_naive(a, b) << std::endl;
+  std::cout << gcd_fast(a, b) << std::endl;
   return 0;
 }
