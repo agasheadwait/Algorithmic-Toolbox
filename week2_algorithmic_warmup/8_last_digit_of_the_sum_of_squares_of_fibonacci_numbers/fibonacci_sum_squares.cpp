@@ -46,7 +46,7 @@ long long get_fibonacci_huge_naive(long long n, long long m) {
         prev = curr-prev;
         curr=curr%m;
         prev=prev%m;
-        
+    
     }
     return curr%m;
 
