@@ -3,29 +3,42 @@
 
 using std::cin;
 using std::cout;
-using std::vector;
 using std::max;
+using std::vector;
 
-int compute_min_refills(int dist, int tank, vector<int> & stops) {
-    int numRefill=0;
-    int curRefil=0;
-    while(curRefil<=stops.size()){
-        int lastRefil = curRefil;
-        while(curRefil<stops.size() && (stops[curRefil+1] - stops[lastRefil] )<=tank){
-            curRefil++;
+int compute_min_refills(int dist, int tank, vector<int> &stops, int count = 0)
+{
+    // write your code here
+    int rCount = 0;
+    int refillPos = -2;
+    int i = 0;
+    int currLocation = 0;
+    stops.push_back(dist);
+    while (true)
+    {
+        if (tank + currLocation >= dist)
+        {
+            return rCount;
         }
-        if(curRefil==lastRefil){
-            return -1;
+        if (tank < stops[i] - currLocation)
+        {
+            refillPos = i - 1;
+            if (currLocation == stops[refillPos])
+            {
+                return -1;
+            }
+            rCount++;
+            currLocation = stops[i - 1];
+            i -= 1;
+            continue;
         }
-        if (curRefil<=stops.size()){
-            numRefill++;
-        }
+        i++;
     }
-    return numRefill;
+    return -1;
 }
 
-
-int main() {
+int main()
+{
     int d = 0;
     cin >> d;
     int m = 0;
