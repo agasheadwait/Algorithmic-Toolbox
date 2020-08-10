@@ -9,9 +9,9 @@ using std::max;
 int compute_min_refills(int dist, int tank, vector<int> & stops) {
     int numRefill=0;
     int curRefil=0;
-    while(curRefil<stops.size()){
+    while(curRefil<=stops.size()){
         int lastRefil = curRefil;
-        while(curRefil<=stops.size() && (stops[curRefil+1] - stops[lastRefil-1] )<=tank){
+        while(curRefil<stops.size() && (stops[curRefil+1] - stops[lastRefil] )<=tank){
             curRefil++;
         }
         if(curRefil==lastRefil){
