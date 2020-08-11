@@ -9,9 +9,19 @@ struct Segment {
   int start, end;
 };
 
+bool comp(Segment a,Segment b){
+  if (a.start!=b.start){
+    return a.start<b.start;
+  }
+  else{
+    return a.end<b.end;
+  }
+}
+
 vector<int> optimal_points(vector<Segment> &segments) {
   vector<int> points;
   //write your code here
+  sort(segments.begin(),segments.end(),comp);
   for (size_t i = 0; i < segments.size(); ++i) {
     points.push_back(segments[i].start);
     points.push_back(segments[i].end);
