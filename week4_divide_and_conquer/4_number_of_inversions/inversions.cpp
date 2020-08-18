@@ -4,7 +4,13 @@
 using std::vector;
 
 int get_number_of_inversions(vector<int> &a, vector<int> &b, size_t left, size_t right) {
-  
+  int number_of_inversions = 0;
+  if (right <= left + 1) return number_of_inversions;
+  size_t ave = left + (right - left) / 2;
+  number_of_inversions += get_number_of_inversions(a, b, left, ave);
+  number_of_inversions += get_number_of_inversions(a, b, ave, right);
+  //write your code here
+  return number_of_inversions;
 }
 
 int main() {
