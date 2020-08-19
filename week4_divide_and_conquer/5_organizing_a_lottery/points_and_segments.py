@@ -94,4 +94,3 @@ if __name__ == '__main__':
     cnt = fast_count_segments(starts, ends, points)
     for x in cnt:
         print(x, end=' ')
-view rawpoints_and_segments.py hosted with ❤ by GitHub
