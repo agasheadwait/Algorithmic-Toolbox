@@ -19,10 +19,7 @@ void print_vector(vector<int> a)
 
 void print(vector<coords> a)
 {
-  for (auto x : a)
-  {
-    std::cout << "start:" << x.point << ", role:" << x.role << "\n";
-  }
+  
 }
 
 bool compareFunc(coords a, coords b)
